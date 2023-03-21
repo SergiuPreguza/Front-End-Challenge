@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.container {
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.wrapper {
+  outline: 2px solid black;
+  border-radius: 5px;
+  position: relative;
+  width: 1535px;
+  padding: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+.first {
+  margin-bottom: 20px;
+}
+
+.keys {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 4px;
+  outline: 1px solid black;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.last_row {
+  width: 75px;
+}
+
+.column {
+  margin-right: 20px;
+}
+
+.esc {
+  margin-right: 55px;
+}
+
+.f4, .f8{
+  margin-right: 45px;
+}
+
+.f12 {
+  margin-right: 20px;
+}
+
+.backspace {
+  width: 125px;
+}
+
+.tab {
+  width: 85px;
+}
+
+.back_slash {
+  width: 100px;
+}
+
+.caps {
+  width: 100px;
+}
+
+.enter {
+  width: 153px;
+  margin-right: 240px;
+}
+
+.left_shift {
+  width: 121px;
+}
+
+.right_shift {
+  width: 200px;
+  margin-right: 88px;
+}
+
+.up_arrow {
+  margin-right: 88px;
+}
+
+.space {
+  width: 428px;
+}
+
+.plus {
+  height: 128px;
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  bottom: 141px;
+}
+
+.right_enter {
+  height: 128px;
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  bottom: 5px;
+}
+
+.zero {
+  width: 128px;
+}
