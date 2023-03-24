@@ -108,16 +108,16 @@ function Keys () {
             {state: 'default', name:'.', class:'keys'},
         ]);
     
-    const keyDown = (index) => {
+    const mouseDown = (index) => {
         const updatedKey = [...keyState];
         updatedKey[index].state = 'pressed';
         setKeyState(updatedKey);
-    }
 
-    const keyUp = (index) => {
-        const updatedKey = [...keyState];
-        updatedKey[index].state = 'released';
-        setKeyState(updatedKey);
+        setTimeout(() => {
+            const updatedKey = [...keyState];
+            updatedKey[index].state = 'released';
+            setKeyState(updatedKey);
+        }, 3000);
     }
 
         return (
@@ -127,8 +127,7 @@ function Keys () {
                         <div
                             key={index}
                             className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                            onMouseDown={() => keyDown(index)}
-                            onMouseUp={() => keyUp(index)}
+                            onMouseDown={() => mouseDown(index)}
                             tabIndex="0"
                         >
                             {key.name}
@@ -141,8 +140,7 @@ function Keys () {
                         <div
                         key={index}
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                        onMouseDown={() => keyDown(index+16)}
-                        onMouseUp={() => keyUp(index+16)}
+                        onMouseDown={() => mouseDown(index+16)}
                         tabIndex="0"
                     >
                             {key.name}
@@ -155,8 +153,7 @@ function Keys () {
                         <div
                         key={index}
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                        onMouseDown={() => keyDown(index+37)}
-                        onMouseUp={() => keyUp(index+37)}
+                        onMouseDown={() => mouseDown(index+37)}
                         tabIndex="0"
                     >
                             {key.name}
@@ -169,8 +166,7 @@ function Keys () {
                         <div
                         key={index}
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                        onMouseDown={() => keyDown(index+58)}
-                        onMouseUp={() => keyUp(index+58)}
+                        onMouseDown={() => mouseDown(index+58)}
                         tabIndex="0"
                     >
                             {key.name}
@@ -183,8 +179,7 @@ function Keys () {
                         <div
                         key={index}
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                        onMouseDown={() => keyDown(index+74)}
-                        onMouseUp={() => keyUp(index+74)}
+                        onMouseDown={() => mouseDown(index+74)}
                         tabIndex="0"
                     >
                             {key.name}
@@ -197,8 +192,7 @@ function Keys () {
                         <div
                         key={index}
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
-                        onMouseDown={() => keyDown(index+91)}
-                        onMouseUp={() => keyUp(index+91)}
+                        onMouseDown={() => mouseDown(index+91)}
                         tabIndex="0"
                     >
                             {key.name}
