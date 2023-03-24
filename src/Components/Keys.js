@@ -1,158 +1,200 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Keys () {
-        const keys = [
-            {name:'ESC', class:'keys esc'},
-            {name:'F1', class:'keys'},
-            {name:'F2', class:'keys'},
-            {name:'F3', class:'keys'},
-            {name:'F4', class:'keys f4'},
-            {name:'F5', class:'keys'},
-            {name:'F6', class:'keys'},
-            {name:'F7', class:'keys'},
-            {name:'F8', class:'keys f8'},
-            {name:'F9', class:'keys'},
-            {name:'F10', class:'keys'},
-            {name:'F11', class:'keys'},
-            {name:'F12', class:'keys column'},
-            {name:'PRINT SCREEN', class:'keys'},
-            {name:'SCROLL LOCK', class:'keys'},
-            {name:'PAUSE BREAK', class:'keys'},
-            {name:'~', class:'keys'},
-            {name:'1', class:'keys'},
-            {name:'2', class:'keys'},
-            {name:'3', class:'keys'},
-            {name:'4', class:'keys'},
-            {name:'5', class:'keys'},
-            {name:'6', class:'keys'},
-            {name:'7', class:'keys'},
-            {name:'8', class:'keys'},
-            {name:'9', class:'keys'},
-            {name:'0', class:'keys'},
-            {name:'-', class:'keys'},
-            {name:'=', class:'keys'},
-            {name:'BACKSPACE', class:'keys backspace column'},
-            {name:'INS', class:'keys'},
-            {name:'HOME', class:'keys'},
-            {name:'PG UP', class:'keys column'},
-            {name:'NUMLK', class:'keys'},
-            {name:'/', class:'keys'},
-            {name:'*', class:'keys'},
-            {name:'-', class:'keys'},
-            {name:'TAB', class:'keys tab'},
-            {name:'Q', class:'keys'},
-            {name:'W', class:'keys'},
-            {name:'E', class:'keys'},
-            {name:'R', class:'keys'},
-            {name:'T', class:'keys'},
-            {name:'Y', class:'keys'},
-            {name:'U', class:'keys'},
-            {name:'I', class:'keys'},
-            {name:'O', class:'keys'},
-            {name:'P', class:'keys'},
-            {name:'[', class:'keys'},
-            {name:']', class:'keys'},
-            {name:'\\', class:'keys backslash column'},
-            {name:'DEL', class:'keys'},
-            {name:'END', class:'keys'},
-            {name:'PG DN', class:'keys column'},
-            {name:'7', class:'keys'},
-            {name:'8', class:'keys'},
-            {name:'9', class:'keys'},
-            {name:'+', class:'keys plus'},
-            {name:'CAPS', class:'keys caps'},
-            {name:'A', class:'keys'},
-            {name:'S', class:'keys'},
-            {name:'D', class:'keys'},
-            {name:'F', class:'keys'},
-            {name:'G', class:'keys'},
-            {name:'H', class:'keys'},
-            {name:'J', class:'keys'},
-            {name:'K', class:'keys'},
-            {name:'L', class:'keys'},
-            {name:';', class:'keys'},
-            {name:'\'', class:'keys'},
-            {name:'ENTER', class:'keys enter column'},
-            {name:'4', class:'keys'},
-            {name:'5', class:'keys'},
-            {name:'6', class:'keys'},
-            {name:'SHIFT', class:'keys left_shift'},
-            {name:'Z', class:'keys'},
-            {name:'X', class:'keys'},
-            {name:'C', class:'keys'},
-            {name:'V', class:'keys'},
-            {name:'B', class:'keys'},
-            {name:'N', class:'keys'},
-            {name:'M', class:'keys'},
-            {name:',', class:'keys'},
-            {name:'.', class:'keys'},
-            {name:'/', class:'keys'},
-            {name:'SHIFT', class:'keys right_shift'},
-            {name:'UP ARROW', class:'keys up_arrow'},
-            {name:'1', class:'keys'},
-            {name:'2', class:'keys'},
-            {name:'3', class:'keys'},
-            {name:'ENTER', class:'keys right_enter'},
-            {name:'CTRL', class:'keys last_row'},
-            {name:'WINDOWS', class:'keys last_row'},
-            {name:'ALT', class:'keys last_row'},
-            {name:'SPACE', class:'keys space'},
-            {name:'ALT', class:'keys last_row'},
-            {name:'FN', class:'keys last_row'},
-            {name:'MENU', class:'keys last_row'},
-            {name:'CTRL', class:'keys last_row column'},
-            {name:'LEFT ARROW', class:'keys'},
-            {name:'DOWN ARROW', class:'keys'},
-            {name:'RIGHT ARROW', class:'keys column'},
-            {name:'0', class:'keys zero'},
-            {name:'.', class:'keys'},
-        ];
+        const [keyState, setKeyState] = useState ([
+            {state: 'default', name:'ESC', class:'keys esc'},
+            {state: 'default', name:'F1', class:'keys'},
+            {state: 'default', name:'F2', class:'keys'},
+            {state: 'default', name:'F3', class:'keys'},
+            {state: 'default', name:'F4', class:'keys f4'},
+            {state: 'default', name:'F5', class:'keys'},
+            {state: 'default', name:'F6', class:'keys'},
+            {state: 'default', name:'F7', class:'keys'},
+            {state: 'default', name:'F8', class:'keys f8'},
+            {state: 'default', name:'F9', class:'keys'},
+            {state: 'default', name:'F10', class:'keys'},
+            {state: 'default', name:'F11', class:'keys'},
+            {state: 'default', name:'F12', class:'keys column'},
+            {state: 'default', name:'PRINT SCREEN', class:'keys'},
+            {state: 'default', name:'SCROLL LOCK', class:'keys'},
+            {state: 'default', name:'PAUSE BREAK', class:'keys'},
+            {state: 'default', name:'~', class:'keys'},
+            {state: 'default', name:'1', class:'keys'},
+            {state: 'default', name:'2', class:'keys'},
+            {state: 'default', name:'3', class:'keys'},
+            {state: 'default', name:'4', class:'keys'},
+            {state: 'default', name:'5', class:'keys'},
+            {state: 'default', name:'6', class:'keys'},
+            {state: 'default', name:'7', class:'keys'},
+            {state: 'default', name:'8', class:'keys'},
+            {state: 'default', name:'9', class:'keys'},
+            {state: 'default', name:'0', class:'keys'},
+            {state: 'default', name:'-', class:'keys'},
+            {state: 'default', name:'=', class:'keys'},
+            {state: 'default', name:'BACKSPACE', class:'keys backspace column'},
+            {state: 'default', name:'INS', class:'keys'},
+            {state: 'default', name:'HOME', class:'keys'},
+            {state: 'default', name:'PG UP', class:'keys column'},
+            {state: 'default', name:'NUMLK', class:'keys'},
+            {state: 'default', name:'/', class:'keys'},
+            {state: 'default', name:'*', class:'keys'},
+            {state: 'default', name:'-', class:'keys'},
+            {state: 'default', name:'TAB', class:'keys tab'},
+            {state: 'default', name:'Q', class:'keys'},
+            {state: 'default', name:'W', class:'keys'},
+            {state: 'default', name:'E', class:'keys'},
+            {state: 'default', name:'R', class:'keys'},
+            {state: 'default', name:'T', class:'keys'},
+            {state: 'default', name:'Y', class:'keys'},
+            {state: 'default', name:'U', class:'keys'},
+            {state: 'default', name:'I', class:'keys'},
+            {state: 'default', name:'O', class:'keys'},
+            {state: 'default', name:'P', class:'keys'},
+            {state: 'default', name:'[', class:'keys'},
+            {state: 'default', name:']', class:'keys'},
+            {state: 'default', name:'\\', class:'keys backslash column'},
+            {state: 'default', name:'DEL', class:'keys'},
+            {state: 'default', name:'END', class:'keys'},
+            {state: 'default', name:'PG DN', class:'keys column'},
+            {state: 'default', name:'7', class:'keys'},
+            {state: 'default', name:'8', class:'keys'},
+            {state: 'default', name:'9', class:'keys'},
+            {state: 'default', name:'+', class:'keys plus'},
+            {state: 'default', name:'CAPS', class:'keys caps'},
+            {state: 'default', name:'A', class:'keys'},
+            {state: 'default', name:'S', class:'keys'},
+            {state: 'default', name:'D', class:'keys'},
+            {state: 'default', name:'F', class:'keys'},
+            {state: 'default', name:'G', class:'keys'},
+            {state: 'default', name:'H', class:'keys'},
+            {state: 'default', name:'J', class:'keys'},
+            {state: 'default', name:'K', class:'keys'},
+            {state: 'default', name:'L', class:'keys'},
+            {state: 'default', name:';', class:'keys'},
+            {state: 'default', name:'\'', class:'keys'},
+            {state: 'default', name:'ENTER', class:'keys enter column'},
+            {state: 'default', name:'4', class:'keys'},
+            {state: 'default', name:'5', class:'keys'},
+            {state: 'default', name:'6', class:'keys'},
+            {state: 'default', name:'SHIFT', class:'keys left_shift'},
+            {state: 'default', name:'Z', class:'keys'},
+            {state: 'default', name:'X', class:'keys'},
+            {state: 'default', name:'C', class:'keys'},
+            {state: 'default', name:'V', class:'keys'},
+            {state: 'default', name:'B', class:'keys'},
+            {state: 'default', name:'N', class:'keys'},
+            {state: 'default', name:'M', class:'keys'},
+            {state: 'default', name:',', class:'keys'},
+            {state: 'default', name:'.', class:'keys'},
+            {state: 'default', name:'/', class:'keys'},
+            {state: 'default', name:'SHIFT', class:'keys right_shift'},
+            {state: 'default', name:'UP ARROW', class:'keys up_arrow'},
+            {state: 'default', name:'1', class:'keys'},
+            {state: 'default', name:'2', class:'keys'},
+            {state: 'default', name:'3', class:'keys'},
+            {state: 'default', name:'ENTER', class:'keys right_enter'},
+            {state: 'default', name:'CTRL', class:'keys last_row'},
+            {state: 'default', name:'WINDOWS', class:'keys last_row'},
+            {state: 'default', name:'ALT', class:'keys last_row'},
+            {state: 'default', name:'SPACE', class:'keys space'},
+            {state: 'default', name:'ALT', class:'keys last_row'},
+            {state: 'default', name:'FN', class:'keys last_row'},
+            {state: 'default', name:'MENU', class:'keys last_row'},
+            {state: 'default', name:'CTRL', class:'keys last_row column'},
+            {state: 'default', name:'LEFT ARROW', class:'keys'},
+            {state: 'default', name:'DOWN ARROW', class:'keys'},
+            {state: 'default', name:'RIGHT ARROW', class:'keys column'},
+            {state: 'default', name:'0', class:'keys zero'},
+            {state: 'default', name:'.', class:'keys'},
+        ]);
+    
+    const mouseDown = (index) => {
+        const updatedKey = [...keyState];
+        updatedKey[index].state = 'pressed';
+        setKeyState(updatedKey);
+
+        setTimeout(() => {
+            const updatedKey = [...keyState];
+            updatedKey[index].state = 'released';
+            setKeyState(updatedKey);
+        }, 3000);
+    }
 
         return (
             <>
                 <div className="row first">
-                    {keys.slice(0,16).map((key) => (
-                        <div className={key.class}>
+                    {keyState.slice(0,16).map((key, index) => (
+                        <div
+                            key={index}
+                            className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                            onMouseDown={() => mouseDown(index)}
+                            tabIndex="0"
+                        >
                             {key.name}
                         </div>
                     ))}
                 </div>
 
                 <div className="row">
-                    {keys.slice(16,37).map((key) => (
-                        <div className={key.class}>
+                    {keyState.slice(16,37).map((key, index) => (
+                        <div
+                        key={index}
+                        className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                        onMouseDown={() => mouseDown(index+16)}
+                        tabIndex="0"
+                    >
                             {key.name}
                         </div>
                     ))}
                 </div>
 
                 <div className="row">
-                    {keys.slice(37,58).map((key) => (
-                        <div className={key.class}>
+                    {keyState.slice(37,58).map((key, index) => (
+                        <div
+                        key={index}
+                        className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                        onMouseDown={() => mouseDown(index+37)}
+                        tabIndex="0"
+                    >
+                            {key.name}
+                    </div>
+                    ))}
+                </div>
+
+                <div className="row">
+                    {keyState.slice(58,74).map((key, index) => (
+                        <div
+                        key={index}
+                        className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                        onMouseDown={() => mouseDown(index+58)}
+                        tabIndex="0"
+                    >
                             {key.name}
                         </div>
                     ))}
                 </div>
 
                 <div className="row">
-                    {keys.slice(58,74).map((key) => (
-                        <div className={key.class}>
+                    {keyState.slice(74,91).map((key, index) => (
+                        <div
+                        key={index}
+                        className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                        onMouseDown={() => mouseDown(index+74)}
+                        tabIndex="0"
+                    >
                             {key.name}
                         </div>
                     ))}
                 </div>
 
                 <div className="row">
-                    {keys.slice(74,91).map((key) => (
-                        <div className={key.class}>
-                            {key.name}
-                        </div>
-                    ))}
-                </div>
-
-                <div className="row">
-                    {keys.slice(91,104).map((key) => (
-                        <div className={key.class}>
+                    {keyState.slice(91,104).map((key, index) => (
+                        <div
+                        key={index}
+                        className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
+                        onMouseDown={() => mouseDown(index+91)}
+                        tabIndex="0"
+                    >
                             {key.name}
                         </div>
                     ))}
