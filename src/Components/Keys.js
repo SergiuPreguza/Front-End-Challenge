@@ -118,7 +118,14 @@ function Keys () {
             updatedKey[index].state = 'released';
             setKeyState(updatedKey);
         }, 3000);
-    }
+    };
+
+    setInterval(() => {
+        setKeyState(prev => prev.map(key => ({
+            ...key,
+            state: 'default'
+        })));
+        }, 60000);
 
         return (
             <>
