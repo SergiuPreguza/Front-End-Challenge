@@ -124,3 +124,17 @@
 .released {
   background-color: green;
 }
+
+.repeat {
+  margin-left: 100px;
+  width: 100px;
+  background-color: green;
+}
+
+.repeatbutton {
+  background-color: transparent;
+  border: none;
+  width: 100px;
+  height: 60px;
+  cursor: pointer;
+}

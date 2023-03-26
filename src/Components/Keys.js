@@ -108,11 +108,13 @@ function Keys () {
             {state: 'default', name:'.', class:'keys'},
         ]);
     
+    const [pressedKeys, setPressedKeys] = useState([]);
+
     const mouseDown = (index) => {
+        setPressedKeys([...pressedKeys, index]);
         const updatedKey = [...keyState];
         updatedKey[index].state = 'pressed';
         setKeyState(updatedKey);
-
         setTimeout(() => {
             const updatedKey = [...keyState];
             updatedKey[index].state = 'released';
@@ -127,6 +129,23 @@ function Keys () {
         })));
         }, 60000);
 
+        const repeat = () => {
+            for (let i = 0; i < pressedKeys.length; i++) {
+                setTimeout(() => {
+                    const updatedKey = [...keyState];
+                    updatedKey[pressedKeys[i]] = {...updatedKey[pressedKeys[i]], class: `${updatedKey[pressedKeys[i]].class} released`};
+                    setKeyState(updatedKey);
+                }, i * 200);
+            };
+          
+            setTimeout(() => {
+                const updatedKey = [...keyState];
+                updatedKey[pressedKeys[pressedKeys.length - 1]] = {...updatedKey[pressedKeys[pressedKeys.length - 1]],
+                    class: updatedKey[pressedKeys[pressedKeys.length - 1]].class.replace('released', '').trim()};
+                setKeyState(updatedKey);
+            }, pressedKeys.length * 200);
+        };
+
         return (
             <>
                 <div className="row first">
@@ -140,6 +159,11 @@ function Keys () {
                             {key.name}
                         </div>
                     ))}
+
+                    <div className="keys repeat">
+                        <button onClick={repeat} className="repeatbutton">Repeat</button>
+                    </div>
+
                 </div>
 
                 <div className="row">
@@ -149,7 +173,7 @@ function Keys () {
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
                         onMouseDown={() => mouseDown(index+16)}
                         tabIndex="0"
-                    >
+                        >
                             {key.name}
                         </div>
                     ))}
@@ -162,9 +186,9 @@ function Keys () {
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
                         onMouseDown={() => mouseDown(index+37)}
                         tabIndex="0"
-                    >
+                        >
                             {key.name}
-                    </div>
+                        </div>
                     ))}
                 </div>
 
@@ -175,7 +199,7 @@ function Keys () {
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
                         onMouseDown={() => mouseDown(index+58)}
                         tabIndex="0"
-                    >
+                        >
                             {key.name}
                         </div>
                     ))}
@@ -188,7 +212,7 @@ function Keys () {
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
                         onMouseDown={() => mouseDown(index+74)}
                         tabIndex="0"
-                    >
+                        >
                             {key.name}
                         </div>
                     ))}
@@ -201,7 +225,7 @@ function Keys () {
                         className={key.class + (key.state === 'pressed' ? ' pressed' : '') + (key.state === 'released' ? ' released' : '')}
                         onMouseDown={() => mouseDown(index+91)}
                         tabIndex="0"
-                    >
+                        >
                             {key.name}
                         </div>
                     ))}
