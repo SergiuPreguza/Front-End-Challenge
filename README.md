@@ -1,1 +1,7 @@
 # Front-End-Challenge
+
+## This is a task for the position of front-end developer intern at Infigo.
+
+### <br> I've created a React function component that renders a virtual keyboard layout. The component uses the useState hook to maintain the state of each key on the keyboard. The state of each key is an object that contains a state property (which determines the current state of the key), a name property (which represents the name of the key), and a class property (which represents the CSS classes that should be applied to the key).
+
+### <br> The virtual keyboard layout is defined using a series of div elements. The state of each key is used to determine the CSS classes that should be applied to the key. The onMouseDown event of each key is used to update the state of the corresponding key when it is pressed. There are three different states, each one should change the color of the key to a different one: default (gray), pressed (blue) and released (green). I then proceed to extend this functionality so that the pressed state remains active for 3 seconds and then falls back to the released state. There is also a timer that resets all the pressed keys' state back to default every 60 seconds. The repeat button when pressed will simulate the pressing of all the keys that were previously pressed, with a delay of 200ms between each press, skipping the pressed state.
