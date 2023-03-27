@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
 function Keys () {
+
+// Creating a state array using the useState hook
+// The array is called keyState, and the state is updated by using the setKeyState function
+// Each object has three properties:
+// 1. state (representing the state of the key, set to 'default' for all keys in the start)
+// 2. name (representing the name of the key, for example ESC, Enter, etc.)
+// 3. class (representing the CSS class names which are to be applied to the key)
+
         const [keyState, setKeyState] = useState ([
             {state: 'default', name:'ESC', class:'keys esc'},
             {state: 'default', name:'F1', class:'keys'},
@@ -107,8 +115,14 @@ function Keys () {
             {state: 'default', name:'0', class:'keys zero'},
             {state: 'default', name:'.', class:'keys'},
         ]);
-    
+
+// Creating another state array using the useState hook
+// This array is used to keep track of the keys that the user has pressed
+
     const [pressedKeys, setPressedKeys] = useState([]);
+
+// Created a function which changes the state of the pressed key to 'pressed'
+// After 3 seconds, it changes the state to 'released'
 
     const mouseDown = (index) => {
         setPressedKeys([...pressedKeys, index]);
@@ -122,12 +136,17 @@ function Keys () {
         }, 3000);
     };
 
+// Created the timer which resets all keys back to the 'default' state every 60 seconds
+
     setInterval(() => {
         setKeyState(prev => prev.map(key => ({
             ...key,
             state: 'default'
         })));
         }, 60000);
+
+// Created the repeat button which when pressed, simulates the pressing of all the previously pressed keys,
+// skipping the pressed state and with a 200ms delay between each press
 
         const repeat = () => {
             for (let i = 0; i < pressedKeys.length; i++) {
@@ -137,7 +156,10 @@ function Keys () {
                     setKeyState(updatedKey);
                 }, i * 200);
             };
-          
+
+// Used 2 setTimeout function, the second one is for the last pressed key only,
+// as it's 'released' class was not removed when the repeat function was completed
+
             setTimeout(() => {
                 const updatedKey = [...keyState];
                 updatedKey[pressedKeys[pressedKeys.length - 1]] = {...updatedKey[pressedKeys[pressedKeys.length - 1]],
@@ -145,6 +167,10 @@ function Keys () {
                 setKeyState(updatedKey);
             }, pressedKeys.length * 200);
         };
+
+// Returning the keyboard layout, with all it's rows and keys
+// Each key is a div element, and every div element has an onMouseDown event handler, which triggers the mouseDown function
+// Also setting the className of every key from the keyState array plus the 'pressed'/'released' class, based on the state of the key
 
         return (
             <>
@@ -233,5 +259,7 @@ function Keys () {
             </>
         )
     };
+
+// exporting the component
 
 export default Keys;
