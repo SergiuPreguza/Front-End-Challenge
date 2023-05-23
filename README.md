@@ -1,6 +1,4 @@
-# Front-End-Challenge
-
-## This is a task for the position of front-end developer intern at Infigo.
+# Project: Keyboard
 
 ### <br> I've created a React function component that renders a virtual keyboard layout. The component uses the useState hook to maintain the state of each key on the keyboard. The state of each key is an object that contains a state property (which determines the current state of the key), a name property (which represents the name of the key), and a class property (which represents the CSS classes that should be applied to the key).
 
